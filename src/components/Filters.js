@@ -5,10 +5,7 @@ import { MdOutlineKeyboardAlt } from "react-icons/md";
 // export const chosenCategory = ()=>{
 //   return defaultTag
 // }
-const Filters = ({ defaultTag, setDefaultTag, data }) => {
-  const tagsArray = Object.keys(data[0]);
-console.log(tagsArray)
-  // tagsArray.unshift("Please select a category");
+const Filters = ({ defaultTag, setDefaultTag, data, tagsArray}) => {
 
   const handleCategoryChange = (e) => {
     setDefaultTag(e.target.value)

@@ -1,8 +1,5 @@
 const Display = ({ defaultTag, data }) => {
-
-    const keys = Object.keys(data[0]);
-
-    console.log(keys);
+    // console.log(keys);
     // console.log(data);
     return (
         <>

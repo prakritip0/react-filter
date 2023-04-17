@@ -6,6 +6,7 @@ let rawData = require("../data/data.json")
 const Main = () => {
     const [defaultTag, setDefaultTag] = useState("Please select a category");
     console.log(defaultTag);
+
     const handleDefaultTag = () => {
         setDefaultTag();
     }
@@ -15,11 +16,12 @@ const Main = () => {
     console.log(e.target.value);
     setDefaultTag(e.target.value)
   }
+  const tagsArray = Object.keys(data[0]);
 
     return (
         <div>
             <h1 className='logo'>Filter</h1>
-            <Filters defaultTag={defaultTag} setDefaultTag={handleDefaultTag} data={data} />
+            <Filters defaultTag={defaultTag} setDefaultTag={handleDefaultTag} data={data} tagsArray={tagsArray} />
             <Display defaultTag={defaultTag} data={data} />
         </div>
     )
