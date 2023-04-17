@@ -45,7 +45,6 @@ code {
 
 .filters>* {
   height: 3rem;
-
   justify-content: space-between;
 }
 
@@ -59,15 +58,7 @@ select {
   border: 1px solid #000;
   border-radius: 0.2rem;
   font-size: 1rem;
-  /* padding-right: 3rem; */
 }
-
-
-/* #tags>option {
-  background-color: #fff;
-  color: #000;
-  font-size: 1rem;
-} */
 
 .secondFilter {
   width: 15rem;
@@ -113,7 +104,6 @@ select {
 }
 
 .singleProfile {
-  /* background-color: rgb(191, 191, 191); */
   border: 0 solid;
   border-radius: 0.5rem;
   box-shadow: 5px 5px 10px rgb(125, 124, 124);

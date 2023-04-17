@@ -1,4 +1,8 @@
-const Display = ({defaultTag, data}) => {
+const Display = ({ defaultTag, data }) => {
+
+    const keys = Object.keys(data[0]);
+
+    console.log(keys);
     // console.log(data);
     return (
         <>
@@ -11,19 +15,18 @@ const Display = ({defaultTag, data}) => {
                         </p>
                     )
                 })} */}
-                {data.map((datum)=>{
-                    console.log(datum);
-                    return(
+                {data.map((datum) => {
+                    return (
                         <div className="singleProfile" key={datum.email}>
-                            <h2>Name: {datum.first_name} {datum.last_name}</h2>
+                            <h2>{datum.first_name} {datum.last_name}</h2>
                             <p>Email: {datum.email}</p>
                             <p>Gender: {datum.gender}</p>
                             <p>DOB: {datum.date_of_birth}</p>
-                            <p>Province: {datum.provinces }</p>
+                            <p>Province: {datum["provinces "]}</p>
                             <p>Hobbby: {datum.hobbies}</p>
                             <p>Social Handle: {datum.socials}</p>
                             <p>IP Address: {datum.ip_address}</p>
-                            <p>Employed: {datum.is_employed}</p>
+                            <p>Employment Status: {datum.is_employed ? "Employed": "Unemployed"}</p>
                         </div>
                     )
                 })}
