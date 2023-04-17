@@ -5,18 +5,18 @@ import { MdOutlineKeyboardAlt } from "react-icons/md";
 // export const chosenCategory = ()=>{
 //   return defaultTag
 // }
-const Filters = ({ defaultTag, setDefaultTag, data, tagsArray}) => {
+const Filters = ({ tag, setTag, data, tagsArray}) => {
 
   const handleCategoryChange = (e) => {
-    setDefaultTag(e.target.value)
+    setTag(e.target.value)
     
   }
   return (
     <div className="filters flex-row">
-        <select className="padding border" id="tags" defaultValue={defaultTag} onChange={handleCategoryChange}>
+        <select className="padding border" id="tags" defaultValue={tag} onChange={handleCategoryChange}>
           <option value="">Please select a category</option>
           {tagsArray && tagsArray.map((category) => {
-            console.log(defaultTag);
+            console.log(tag);
             return (
               <>
                 <option value={category }>{category.split("_")}</option>

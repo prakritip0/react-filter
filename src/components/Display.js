@@ -13,6 +13,9 @@ const Display = ({ defaultTag, data }) => {
                     )
                 })} */}
                 {data.map((datum) => {
+                    // datum.map((key)=>{
+                    //     console.log(key)
+                    // })
                     return (
                         <div className="singleProfile" key={datum.email}>
                             <h2>{datum.first_name} {datum.last_name}</h2>
@@ -33,3 +36,4 @@ const Display = ({ defaultTag, data }) => {
 }
 
 export default Display
+
