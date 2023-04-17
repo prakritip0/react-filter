@@ -1,14 +1,10 @@
-import React from 'react'
-import Display from './components/Display'
-import Filters from './components/Filters'
+import Main from "./pages/Main"
 
 const App = () => {
   return (
-    <div>
-      <h1>Filter</h1>
-      <Filters />
-      <Display chosenCategory={defaultTag} />
-    </div>
+    <>
+    <Main/>
+    </>
   )
 }
 

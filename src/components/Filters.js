@@ -1,17 +1,14 @@
-import { useState } from "react";
 import { BsChevronDown } from "react-icons/bs";
 import { MdOutlineKeyboardAlt } from "react-icons/md";
 
-export let data = require("../data/data.json")
 
 // export const chosenCategory = ()=>{
 //   return defaultTag
 // }
-const Filters = () => {
+const Filters = ({ defaultTag, setDefaultTag, data }) => {
   const tagsArray = Object.keys(data[0]);
 
-  tagsArray.unshift("Please select a category");
-  const [defaultTag, setDefaultTag] = useState("Please select a category");
+  // tagsArray.unshift("Please select a category");
 
   const handleCategoryChange = (e) => {
     setDefaultTag(e.target.value)
@@ -20,7 +17,9 @@ const Filters = () => {
     <div className="filters flex-row">
       <div className="firstFilter flex-row">
         <select id="tags" defaultValue={defaultTag} onChange={handleCategoryChange}>
+          <option value="">Please select a category</option>
           {tagsArray && tagsArray.map((category) => {
+            console.log(defaultTag);
             return (
               <>
                 <option value={category}>{category}</option>

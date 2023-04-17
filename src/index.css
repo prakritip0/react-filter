@@ -30,8 +30,13 @@ code {
   border-radius: 0.2rem;
 }
 
+.logo {
+  margin: 1rem 5.5rem 2rem;
+  text-shadow: 2px 2px 2px #717070;
+}
+
 .filters {
-  gap: 4rem;
+  gap: 6rem;
 }
 
 .filters>* {
@@ -45,16 +50,15 @@ code {
 }
 
 .firstFilter {
-  width: 15rem;
+  width: 25rem;
   position: relative;
 }
 
 .firstFilter select {
-  width: 100%;
+  width: 25rem;
   height: 3rem;
   -webkit-appearance: none;
   -moz-appearance: none;
-  width: 15rem;
   padding: 0.5rem 1rem;
   position: absolute;
   border: 1px solid #000;
@@ -86,7 +90,7 @@ code {
 } */
 
 .secondFilter {
-  width: 8rem;
+  width: 15rem;
 }
 
 .secondFilter:hover {
@@ -99,7 +103,7 @@ code {
 }
 
 .thirdFilter {
-  width: 25rem;
+  width: 30rem;
   padding: 0;
   position: relative;
 }
@@ -120,4 +124,20 @@ code {
   top: 30%;
   left: 2%;
   ;
+}
+
+.dataDisplay {
+  margin: 4rem 5% 0;
+  gap: 2rem;
+  width: 90%;
+}
+
+.singleProfile {
+  /* background-color: rgb(191, 191, 191); */
+  border: 0 solid;
+  border-radius: 0.5rem;
+  box-shadow: 5px 5px 10px rgb(125, 124, 124);
+  padding: 1rem;
+  width: 33%;
+  height: 15rem;
 }
