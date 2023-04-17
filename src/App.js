@@ -1,11 +1,13 @@
+import React from 'react'
+import Filters from './components/Filters'
 
-
-function App() {
+const App = () => {
   return (
-    <div className="App">
-     
+    <div>
+      <h1>Filter</h1>
+      <Filters/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
