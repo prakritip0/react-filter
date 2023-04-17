@@ -15,22 +15,19 @@ const Filters = ({ defaultTag, setDefaultTag, data }) => {
   }
   return (
     <div className="filters flex-row">
-      <div className="firstFilter flex-row">
-        <select id="tags" defaultValue={defaultTag} onChange={handleCategoryChange}>
+        <select className="padding border" id="tags" defaultValue={defaultTag} onChange={handleCategoryChange}>
           <option value="">Please select a category</option>
           {tagsArray && tagsArray.map((category) => {
             console.log(defaultTag);
             return (
               <>
-                <option value={category}>{category}</option>
+                <option value={category}>{category.split("_")}</option>
               </>
             )
           })}
         </select>
-        <BsChevronDown className='dropIcon1' />
-      </div>
 
-      <div className="secondFilter flex-row border">
+      <div className="secondFilter flex-row border padding">
         <p>Is</p>
         <BsChevronDown className='dropIcon2' />
       </div>

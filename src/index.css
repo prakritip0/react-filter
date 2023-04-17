@@ -30,6 +30,10 @@ code {
   border-radius: 0.2rem;
 }
 
+.padding {
+  padding: 0.5rem 1rem;
+}
+
 .logo {
   margin: 1rem 5.5rem 2rem;
   text-shadow: 2px 2px 2px #717070;
@@ -41,7 +45,7 @@ code {
 
 .filters>* {
   height: 3rem;
-  padding: 0.5rem 1rem;
+
   justify-content: space-between;
 }
 
@@ -49,39 +53,15 @@ code {
   font-size: 1rem;
 }
 
-.firstFilter {
-  width: 25rem;
-  position: relative;
-}
-
-.firstFilter select {
+select {
   width: 25rem;
   height: 3rem;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  padding: 0.5rem 1rem;
-  position: absolute;
   border: 1px solid #000;
   border-radius: 0.2rem;
   font-size: 1rem;
+  /* padding-right: 3rem; */
 }
 
-.dropIcon1 {
-  position: absolute;
-  right: 0;
-  cursor: pointer;
-}
-
-.dropIcon1:hover {
-  scale: 1.1;
-}
-
-/* .firstFilter select option {
-  color: #000;
-  background-color: #fff;
-  position: absolute;
-  top: 10%;
-} */
 
 /* #tags>option {
   background-color: #fff;
