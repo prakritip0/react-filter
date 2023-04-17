@@ -48,7 +48,8 @@ code {
   width: 15rem;
   position: relative;
 }
-#filter1input{
+
+#filter1input {
   width: 15rem;
   height: 3rem;
   border: 1px solid #000;
@@ -57,45 +58,56 @@ code {
   font-size: 1rem;
   cursor: pointer;
 }
-#filter1input::placeholder{
+
+#filter1input::placeholder {
   color: rgb(101, 100, 100);
   font-size: 1rem;
 }
+
 /* #filter1input::-webkit-calendar-picker-indicator {
   display: none;
 } */
-.dropIcon1{
+.dropIcon1 {
   position: absolute;
   right: 12.5%;
   cursor: pointer;
 }
-.dropIcon1:hover{
+
+.dropIcon1:hover {
   scale: 1.1;
-  }
-#tags{
+}
+
+#tags {
   width: 15rem;
   height: 3rem;
   padding: 0.5rem 1rem;
+  height: 5rem;
+  position: absolute;
+  background-color: #fff;
 }
+
 #tags::-webkit-calendar-picker-indicator {
-  display: none !important; 
+  display: none !important;
   opacity: 0;
 }
-#tags option{
+
+#tags>option {
   background-color: #fff;
   color: #000;
 }
+
 .secondFilter {
   width: 8rem;
 }
-.secondFilter:hover{
-  cursor:pointer;
+
+.secondFilter:hover {
+  cursor: pointer;
 }
 
-.dropIcon2:hover{
+.dropIcon2:hover {
   scale: 1.1;
   cursor: pointer;
-  }
+}
 
 .thirdFilter {
   width: 25rem;
