@@ -2,7 +2,7 @@ const Display = ({ tag, data, filter }) => {
 
     return (
         <>
-            <div className="dataDisplay flex-row">
+            <div className="dataDisplay grid-3">
                 {data.map((datum) => {
                     return (
                         <div className="singleProfile" key={datum.email}>
