@@ -5,24 +5,63 @@ let rawData = require("../data/data.json")
 
 const Main = () => {
     const [tag, setTag] = useState("Please select a category");
-    console.log(tag);
+    // console.log(tag);
 
-    const handleTag = () => {
-        setTag();
+    const handleTag = (val) => {
+        setTag(val);
     }
     const [data, setData] = useState(rawData);
 
-    const handleCategoryChange = (e) => {
-    console.log(e.target.value);
-    setTag(e.target.value)
-  }
+    const filter = {
+        first_name: {
+          options: ["has", "is"],
+          search: true
+        },
+        last_name: {
+          options: ["has", "is"],
+          search: true
+        },
+        email: {
+          options: ["has", "is"],
+          search: true
+        },
+        gender: {
+          options: ["Male", "Female", "Other"],
+          search: false
+        },
+        date_of_birth: {
+          options: ["before", "after", "is"],
+          search: true
+        },
+        "provinces ": {
+          options: ["is", "is not"],
+          search: true
+        },
+        hobbies: {
+          options: ["include", "exclude"],
+          search: true
+        },
+        socials: {
+          options: ["has", "is"],
+          search: true
+        },
+        ip_address: {
+          // options:["has", "is"],
+          // search : true
+        },
+        is_employed: {
+          options: ["Employed", "Unemployed"],
+          search: false
+        }
+      }
+
   const tagsArray = Object.keys(data[0]);
 
     return (
         <div>
             <h1 className='logo'>Filter</h1>
-            <Filters tag={tag} setTag={handleTag} data={data} tagsArray={tagsArray} />
-            <Display tag={tag} data={data} />
+            <Filters tag={tag} handleTag={handleTag} data={data} tagsArray={tagsArray} filter={filter}/>
+            <Display tag={tag} data={data} filter={filter} />
         </div>
     )
 }

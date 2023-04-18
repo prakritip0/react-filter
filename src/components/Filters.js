@@ -1,36 +1,39 @@
+import { useEffect } from "react";
 import { BsChevronDown } from "react-icons/bs";
 import { MdOutlineKeyboardAlt } from "react-icons/md";
 
 
-// export const chosenCategory = ()=>{
-//   return defaultTag
-// }
-const Filters = ({ tag, setTag, data, tagsArray}) => {
+const Filters = ({ tag, handleTag, data, tagsArray, filter }) => {
+  useEffect(() => {
+    if (tag !== "") {
+    }
 
+  }, [tag])
   const handleCategoryChange = (e) => {
-    setTag(e.target.value)
-    
+    handleTag(e.target.value)
   }
   return (
     <div className="filters flex-row">
-        <select className="padding border" id="tags" defaultValue={tag} onChange={handleCategoryChange}>
-          <option value="">Please select a category</option>
-          {tagsArray && tagsArray.map((category) => {
-            console.log(tag);
-            return (
-              <>
-                <option value={category }>{category.split("_")}</option>
-              </>
-            )
-          })}
-        </select>
+      <select className="padding border" id="tags" defaultValue={tag} onChange={handleCategoryChange}>
+        <option value="">Please select a category</option>
+        {tagsArray.length && tagsArray.map((category) => {
+          return (
+            <>
+              <option value={category}>{category.split("_")}</option>
+            </>
+          )
+        })}
+      </select>
 
-      <div className="secondFilter flex-row border padding">
-        <p>Is</p>
-        <BsChevronDown className='dropIcon2' />
-      </div>
+
+      <select className="padding" id="middleTags">
+        {filter[tag]?.options && filter[tag]?.options.map((midTag) => (
+          <option value={midTag}>{midTag}</option>
+        ))}
+      </select>
+
       <div className="thirdFilter">
-        <input type="text" placeholder='type keywords...' />
+        <input type="text" disabled={!filter[tag]?.search} placeholder='type keywords...' />
         <MdOutlineKeyboardAlt className="keyboardIcon" />
       </div>
     </div>
