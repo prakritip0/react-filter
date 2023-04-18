@@ -5,7 +5,6 @@ let rawData = require("../data/data.json")
 
 const Main = () => {
     const [tag, setTag] = useState("Please select a category");
-    // console.log(tag);
 
     const handleTag = (val) => {
         setTag(val);
@@ -46,8 +45,8 @@ const Main = () => {
           search: true
         },
         ip_address: {
-          // options:["has", "is"],
-          // search : true
+          options:["range equals"],
+          search : true
         },
         is_employed: {
           options: ["Employed", "Unemployed"],
