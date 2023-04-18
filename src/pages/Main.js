@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Display from "../components/Display"
 import Filters from '../components/Filters'
 let rawData = require("../data/data.json")
@@ -33,7 +33,7 @@ const Main = () => {
             search: true
         },
         gender: {
-            options: ["Male", "Female", "Other"],
+            options: ["Male", "Female", "Non-binary", "Genderfluid", "Bigender", "Genderqueer", "Agender", "Polygender"],
             search: false
         },
         date_of_birth: {
@@ -57,15 +57,34 @@ const Main = () => {
             search: true
         },
         is_employed: {
-            options: ["Employed", "Unemployed"],
+            options: [{ label: "Employed", value: true }, { label: "Unemployed", value: false }],
             search: false
         }
     }
 
     const tagsArray = Object.keys(data[0]);
 
-    console.log(midTag)
-    console.log(filterInput)
+    useEffect(() => {
+        if (tag == "gender" || tag == "is_employed") {
+            // console.log(midTag)
+            if (midTag !== "") {
+               const filter2Data=  data.filter((profile) => {
+                    return profile[tag] == midTag;
+                })
+                setData(filter2Data)
+            }
+        }else{
+            // if (midTag !== ""){
+            //     const filter1Data =data.some((profile)=>{
+            //         return profile[tag]
+            //     })
+            // }
+        }
+        
+    }, [tag, midTag, filterInput])
+
+//    setData(rawData);
+
     return (
         <div>
             <h1 className='logo'>Filter</h1>

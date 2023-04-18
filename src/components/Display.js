@@ -1,7 +1,5 @@
-const Display = ({ tag, data, filter, midTag, filterInput }) => {
-    if(data[tag]!==null){
-        console.log("hello")
-    }
+const Display = ({data}) => {
+    
     return (
         <>
             <div className="dataDisplay grid-3">
