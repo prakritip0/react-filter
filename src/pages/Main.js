@@ -7,14 +7,16 @@ const Main = () => {
     const [data, setData] = useState(rawData);
     const [tag, setTag] = useState("Please select a category");
     const [midTag, setMidTag] = useState("")
-
+    const [filterInput, setFilterInput] = useState("")
     const handleTag = (val) => {
         setTag(val);
     }
-    const handleMidTag=(val)=>{ 
+    const handleMidTag = (val) => {
         setMidTag(val);
     }
-    
+    const handleFilterInput = (val) => {
+        setFilterInput(val)
+    }
 
 
     const filter = {
@@ -59,15 +61,16 @@ const Main = () => {
             search: false
         }
     }
-    
+
     const tagsArray = Object.keys(data[0]);
 
-console.log(midTag)
+    console.log(midTag)
+    console.log(filterInput)
     return (
         <div>
             <h1 className='logo'>Filter</h1>
-            <Filters tag={tag} handleTag={handleTag}  data={data} tagsArray={tagsArray} filter={filter} handleMidTag={handleMidTag} />
-            <Display tag={tag} data={data} filter={filter} />
+            <Filters tag={tag} handleTag={handleTag} data={data} tagsArray={tagsArray} filter={filter} handleMidTag={handleMidTag} midTag={midTag} handleFilterInput={handleFilterInput} />
+            <Display tag={tag} data={data} filter={filter} midTag={midTag} filterInput={filterInput} />
         </div>
     )
 }

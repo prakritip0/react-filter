@@ -3,17 +3,20 @@ import { BsChevronDown } from "react-icons/bs";
 import { MdOutlineKeyboardAlt } from "react-icons/md";
 
 
-const Filters = ({ tag, handleTag, data, tagsArray, filter, handleMidTag }) => {
-  useEffect(() => {
-    if (tag !== "") {
-    }
+const Filters = ({ tag, handleTag, data, tagsArray, filter, handleMidTag, handleFilterInput }) => {
+  // useEffect(() => {
+  //   if (tag !== "") {
+  //   }
 
-  }, [tag])
+  // }, [tag])
   const handleCategoryChange = (e) => {
     handleTag(e.target.value)
   }
   const handleMidTagChange =(e)=>{
     handleMidTag(e.target.value)
+  }
+  const handleFilterInputChange=(e)=>{
+handleFilterInput(e.target.value)
   }
   return (
     <div className="filters flex-row">
@@ -30,6 +33,7 @@ const Filters = ({ tag, handleTag, data, tagsArray, filter, handleMidTag }) => {
 
 
       <select className="padding" id="middleTags" onChange={handleMidTagChange}>
+        <option value="">Select filter type</option>
         {filter[tag]?.options && filter[tag]?.options.map((midTag) => {
           return (
             <option value={midTag}>{midTag} </option>
@@ -40,7 +44,7 @@ const Filters = ({ tag, handleTag, data, tagsArray, filter, handleMidTag }) => {
       </select>
 
       <div className="thirdFilter">
-        <input type="text" disabled={!filter[tag]?.search} placeholder='type keywords...' />
+        <input type="text" disabled={!filter[tag]?.search} placeholder='type keywords...' onChange={handleFilterInputChange} />
         <MdOutlineKeyboardAlt className="keyboardIcon" />
       </div>
     </div>
