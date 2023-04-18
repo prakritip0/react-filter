@@ -68,8 +68,8 @@ const Main = () => {
     const tagsArray = Object.keys(data[0]);
 
     useEffect(() => {
-        console.log(rawData)
-        console.log(tag, midTag)
+        // console.log(rawData)
+        // console.log(tag, midTag)
         if (tag === "gender") {
             if (midTag !== "") {
                 const filter2Data = data.filter((profile) => {
