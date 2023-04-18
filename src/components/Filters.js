@@ -3,7 +3,7 @@ import { BsChevronDown } from "react-icons/bs";
 import { MdOutlineKeyboardAlt } from "react-icons/md";
 
 
-const Filters = ({ tag, handleTag, data, tagsArray, filter }) => {
+const Filters = ({ tag, handleTag, data, tagsArray, filter, handleMidTag }) => {
   useEffect(() => {
     if (tag !== "") {
     }
@@ -11,6 +11,9 @@ const Filters = ({ tag, handleTag, data, tagsArray, filter }) => {
   }, [tag])
   const handleCategoryChange = (e) => {
     handleTag(e.target.value)
+  }
+  const handleMidTagChange =(e)=>{
+    handleMidTag(e.target.value)
   }
   return (
     <div className="filters flex-row">
@@ -26,10 +29,14 @@ const Filters = ({ tag, handleTag, data, tagsArray, filter }) => {
       </select>
 
 
-      <select className="padding" id="middleTags">
-        {filter[tag]?.options && filter[tag]?.options.map((midTag) => (
-          <option value={midTag}>{midTag}</option>
-        ))}
+      <select className="padding" id="middleTags" onChange={handleMidTagChange}>
+        {filter[tag]?.options && filter[tag]?.options.map((midTag) => {
+          return (
+            <option value={midTag}>{midTag} </option>
+          )
+        }
+
+        )}
       </select>
 
       <div className="thirdFilter">
