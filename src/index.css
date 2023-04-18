@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +16,98 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.border {
+  border: 1px solid #000;
+  border-radius: 0.2rem;
+}
+
+.padding {
+  padding: 0.5rem 1rem;
+}
+
+.logo {
+  margin: 1rem 5.5rem 2rem;
+  text-shadow: 2px 2px 2px #717070;
+}
+
+.filters {
+  gap: 6rem;
+}
+
+.filters>* {
+  height: 3rem;
+  justify-content: space-between;
+}
+
+.filters p {
+  font-size: 1rem;
+}
+
+select {
+  width: 25rem;
+  height: 3rem;
+  border: 1px solid #000;
+  border-radius: 0.2rem;
+  font-size: 1rem;
+}
+
+#middleTags {
+  width: 15rem;
+}
+
+.secondFilter:hover {
+  cursor: pointer;
+}
+
+.dropIcon2:hover {
+  scale: 1.1;
+  cursor: pointer;
+}
+
+.thirdFilter {
+  width: 30rem;
+  padding: 0;
+  position: relative;
+}
+
+.thirdFilter input {
+  height: 100%;
+  width: 100%;
+  padding: 0.5rem 1rem 0.5rem 2rem;
+  font-size: 1rem;
+}
+
+.thirdFilter input::placeholder {
+  font-size: 1rem;
+}
+
+.thirdFilter .keyboardIcon {
+  position: absolute;
+  top: 30%;
+  left: 2%;
+  ;
+}
+
+.dataDisplay {
+  margin: 4rem 5% 0;
+  gap: 2rem;
+  width: 90%;
+}
+
+.singleProfile {
+  border: 0 solid;
+  border-radius: 0.5rem;
+  box-shadow: 5px 5px 10px rgb(125, 124, 124);
+  padding: 1rem;
+  width: 33%;
+  height: 15rem;
 }
