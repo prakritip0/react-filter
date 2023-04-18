@@ -17,6 +17,9 @@ const Main = () => {
     const handleFilterInput = (val) => {
         setFilterInput(val)
     }
+    const resetData = () => {
+        setData(rawData)
+    }
 
 
     const filter = {
@@ -65,31 +68,36 @@ const Main = () => {
     const tagsArray = Object.keys(data[0]);
 
     useEffect(() => {
-        if (tag == "gender" || tag == "is_employed") {
-            // console.log(midTag)
+        console.log(rawData)
+        console.log(tag, midTag)
+        if (tag === "gender") {
             if (midTag !== "") {
-               const filter2Data=  data.filter((profile) => {
-                    return profile[tag] == midTag;
+                const filter2Data = data.filter((profile) => {
+                    return profile[tag] === midTag;
                 })
                 setData(filter2Data)
+            } else {
+                setData(rawData)
             }
-        }else{
-            // if (midTag !== ""){
-            //     const filter1Data =data.some((profile)=>{
-            //         return profile[tag]
-            //     })
-            // }
         }
-        
+        else if (tag === "is_employed") {
+            if (midTag !== "") {
+                const filter2Data = data.filter((profile) => {
+                    return profile[tag] === (midTag === "true" ? true : false);
+                })
+                setData(filter2Data)
+            } else {
+                setData(rawData)
+            }
+        }
     }, [tag, midTag, filterInput])
 
-//    setData(rawData);
 
     return (
         <div>
             <h1 className='logo'>Filter</h1>
-            <Filters tag={tag} handleTag={handleTag} data={data} tagsArray={tagsArray} filter={filter} handleMidTag={handleMidTag} midTag={midTag} handleFilterInput={handleFilterInput} />
-            <Display tag={tag} data={data} filter={filter} midTag={midTag} filterInput={filterInput} />
+            <Filters tag={tag} handleTag={handleTag} data={data} tagsArray={tagsArray} filter={filter} handleMidTag={handleMidTag} midTag={midTag} handleFilterInput={handleFilterInput} resetData={resetData} />
+            <Display data={data} />
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import { MdOutlineKeyboardAlt } from "react-icons/md";
 
 
-const Filters = ({ tag, handleTag, data, tagsArray, filter, handleMidTag, handleFilterInput }) => {
+const Filters = ({ tag, handleTag, resetData, tagsArray, filter, handleMidTag, handleFilterInput }) => {
   // useEffect(() => {
   //   if (tag !== "") {
   //   }
@@ -11,6 +11,7 @@ const Filters = ({ tag, handleTag, data, tagsArray, filter, handleMidTag, handle
     handleTag(e.target.value)
   }
   const handleMidTagChange = (e) => {
+    resetData()
     handleMidTag(e.target.value)
 
   }
