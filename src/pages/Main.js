@@ -8,6 +8,7 @@ const Main = () => {
     const [tag, setTag] = useState("Please select a category");
     const [midTag, setMidTag] = useState("")
     const [filterInput, setFilterInput] = useState("")
+
     const handleTag = (val) => {
         setTag(val);
     }
@@ -18,46 +19,45 @@ const Main = () => {
         setFilterInput(val)
     }
     const resetData = () => {
-        console.log("reset")
         setData(rawData)
     }
 
 
     const filter = {
         first_name: {
-            options: ["has", "is"],
+            options: [{ label: "has", value: "has" }, { label: "is", value: "is" }],
             search: true
         },
         last_name: {
-            options: ["has", "is"],
+            options: [{ label: "has", value: "has" }, { label: "is", value: "is" }],
             search: true
         },
         email: {
-            options: ["has", "is"],
+            options: [{ label: "has", value: "has" }, { label: "is", value: "is" }],
             search: true
         },
         gender: {
-            options: ["Male", "Female", "Non-binary", "Genderfluid", "Bigender", "Genderqueer", "Agender", "Polygender"],
+            options: [{ label: "Male", value: "Male" }, { label: "Female", value: "Female" }, { label: "Non-binary", value: "Non-binary" }, { label: "Genderfluid", value: "Genderfluid" }, { label: "Bigender", value: "Bigender" }, { label: "Genderqueer", value: "Genderqueer" }, { label: "Agender", value: "Agender" }, { label: "Polygender", value: "Polygender" }],
             search: false
         },
         date_of_birth: {
-            options: ["before", "after", "is"],
+            options: [{ label: "before", value: "before" }, { label: "after", value: "after" }, { label: "is", value: "is" }],
             search: true
         },
         "provinces ": {
-            options: ["is", "is not"],
+            options: [{ label: "is", value: "is" }, { label: "is not", value: "is not" }],
             search: true
         },
         hobbies: {
-            options: ["include", "exclude"],
+            options: [{ label: "include", value: "include" }, { label: "exclude", value: "exclude" }],
             search: true
         },
         socials: {
-            options: ["has", "is"],
+            options: [{ label: "has", value: "has" }, { label: "is", value: "is" }],
             search: true
         },
         ip_address: {
-            options: ["range equals"],
+            options: [{ label: "range equals", value: "range equals" }],
             search: true
         },
         is_employed: {
@@ -65,14 +65,13 @@ const Main = () => {
             search: false
         }
     }
-    console.log(data)
-    const tagsArray = Object.keys(data[0]);
+    // console.log(data)
+    // const tagsArray = Object.keys(data[0]);
 
     useEffect(() => {
-        // console.log(rawData)
-        // console.log(tag, midTag)
+        console.log("FROM MAIN", data)
+        console.log(tag, midTag)
         if (tag === "gender") {
-            console.log(midTag)
             if (midTag !== "") {
                 const filter2Data = data.filter((profile) => {
                     return profile[tag] === midTag;
@@ -88,6 +87,7 @@ const Main = () => {
                     return profile[tag] === (midTag === "true" ? true : false);
                 })
                 setData(filter2Data)
+                console.log(filter2Data)
             } else {
                 setData(rawData)
             }

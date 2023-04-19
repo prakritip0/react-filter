@@ -1,28 +1,19 @@
 import { MdOutlineKeyboardAlt } from "react-icons/md";
 
 
-const Filters = ({ tag, handleTag, resetData, tagsArray, filter, handleMidTag, handleFilterInput }) => {
-  // useEffect(() => {
-  //   if (tag !== "") {
-  //   }
-
-  // }, [tag])
+const Filters = ({ tag, handleTag, resetData, tagsArray, filter, handleMidTag, handleFilterInput, resetMidTag }) => {
   const handleCategoryChange = (e) => {
     resetData()
     handleMidTag("")
-
-    console.log(e.target.value)
     handleTag(e.target.value)
   }
+
+  // console.log(tagsArray)
 
 
   const handleMidTagChange = (e) => {
     resetData()
-    handleMidTag("")
-
-    console.log(e.target.value)
     handleMidTag(e.target.value)
-
   }
   const handleFilterInputChange = (e) => {
     handleFilterInput(e.target.value)
@@ -42,19 +33,12 @@ const Filters = ({ tag, handleTag, resetData, tagsArray, filter, handleMidTag, h
 
 
       <select className="padding" id="middleTags" onChange={handleMidTagChange}>
-        <option value="">Select filter type</option>
+        <option value="" selected="selected">Select filter type</option>
         {filter[tag]?.options && filter[tag]?.options.map((midTag, i) => {
-          // console.log(typeof filter[tag]?.options !== "object"); //false
+          return (
+            <option key={midTag.value} value={midTag.value}>{midTag.label} </option>
+          )
 
-          if (typeof filter[tag]?.options[0] !== "object") {
-            return (
-              <option key={i} value={midTag}>{midTag} </option>
-            )
-          } else {
-            return (
-              <option key={i} value={midTag.value}>{midTag.label} </option>
-            )
-          }
         }
         )}
       </select>
