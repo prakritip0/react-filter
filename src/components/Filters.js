@@ -8,10 +8,19 @@ const Filters = ({ tag, handleTag, resetData, tagsArray, filter, handleMidTag, h
 
   // }, [tag])
   const handleCategoryChange = (e) => {
+    resetData()
+    handleMidTag("")
+
+    console.log(e.target.value)
     handleTag(e.target.value)
   }
+
+
   const handleMidTagChange = (e) => {
     resetData()
+    handleMidTag("")
+
+    console.log(e.target.value)
     handleMidTag(e.target.value)
 
   }
@@ -22,10 +31,10 @@ const Filters = ({ tag, handleTag, resetData, tagsArray, filter, handleMidTag, h
     <div className="filters flex-row">
       <select className="padding border" id="tags" defaultValue={tag} onChange={handleCategoryChange}>
         <option value="">Please select a category</option>
-        {tagsArray.length && tagsArray.map((category) => {
+        {Object.keys(tagsArray[0]).length && Object.keys(tagsArray[0]).map((category, i) => {
           return (
             <>
-              <option value={category}>{category.split("_")}</option>
+              <option key={i} value={category}>{category.split("_")}</option>
             </>
           )
         })}
@@ -34,16 +43,16 @@ const Filters = ({ tag, handleTag, resetData, tagsArray, filter, handleMidTag, h
 
       <select className="padding" id="middleTags" onChange={handleMidTagChange}>
         <option value="">Select filter type</option>
-        {filter[tag]?.options && filter[tag]?.options.map((midTag) => {
+        {filter[tag]?.options && filter[tag]?.options.map((midTag, i) => {
           // console.log(typeof filter[tag]?.options !== "object"); //false
 
           if (typeof filter[tag]?.options[0] !== "object") {
             return (
-              <option value={midTag}>{midTag} </option>
+              <option key={i} value={midTag}>{midTag} </option>
             )
           } else {
             return (
-              <option value={midTag.value}>{midTag.label} </option>
+              <option key={i} value={midTag.value}>{midTag.label} </option>
             )
           }
         }

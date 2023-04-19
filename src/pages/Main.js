@@ -18,6 +18,7 @@ const Main = () => {
         setFilterInput(val)
     }
     const resetData = () => {
+        console.log("reset")
         setData(rawData)
     }
 
@@ -64,13 +65,14 @@ const Main = () => {
             search: false
         }
     }
-
+    console.log(data)
     const tagsArray = Object.keys(data[0]);
 
     useEffect(() => {
         // console.log(rawData)
         // console.log(tag, midTag)
         if (tag === "gender") {
+            console.log(midTag)
             if (midTag !== "") {
                 const filter2Data = data.filter((profile) => {
                     return profile[tag] === midTag;
@@ -89,6 +91,8 @@ const Main = () => {
             } else {
                 setData(rawData)
             }
+        } else {
+
         }
     }, [tag, midTag, filterInput])
 
@@ -96,7 +100,7 @@ const Main = () => {
     return (
         <div>
             <h1 className='logo'>Filter</h1>
-            <Filters tag={tag} handleTag={handleTag} data={data} tagsArray={tagsArray} filter={filter} handleMidTag={handleMidTag} midTag={midTag} handleFilterInput={handleFilterInput} resetData={resetData} />
+            <Filters tag={tag} handleTag={handleTag} data={data} tagsArray={data} filter={filter} handleMidTag={handleMidTag} midTag={midTag} handleFilterInput={handleFilterInput} resetData={resetData} />
             <Display data={data} />
         </div>
     )
