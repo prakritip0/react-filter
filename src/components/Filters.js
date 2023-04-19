@@ -6,7 +6,7 @@ const Filters = ({ tag, handleTag, resetData, tagsArray, filter, handleMidTag, h
     resetData()
     handleMidTag("")
     handleTag(e.target.value)
-    handleFilterInput("")
+    // handleFilterInput("")
   }
 
   // console.log(tagsArray)
@@ -16,11 +16,13 @@ const Filters = ({ tag, handleTag, resetData, tagsArray, filter, handleMidTag, h
     resetData()
     handleMidTag(e.target.value)
     
-    handleFilterInput("")
+    // handleFilterInput("")
   }
   const handleFilterInputChange = (e) => {
+    // console.log(e)
     resetData()
     handleFilterInput(e.target.value)
+    
   }
   return (
     <div className="filters flex-row">

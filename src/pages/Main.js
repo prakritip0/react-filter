@@ -8,7 +8,7 @@ const Main = () => {
     const [tag, setTag] = useState("Please select a category");
     const [midTag, setMidTag] = useState("")
     const [filterInput, setFilterInput] = useState("")
-
+// console.log(filterInput)
     const handleTag = (val) => {
         setTag(val);
     }
@@ -17,7 +17,7 @@ const Main = () => {
     }
     const handleFilterInput = (val) => {
         setFilterInput(val)
-        console.log(filterInput)
+        // console.log(filterInput)
     }
     const resetData = () => {
         setData(rawData)
@@ -98,17 +98,28 @@ const Main = () => {
                     const filter2Data = data.filter((profile) => {
                         return profile[tag].includes(`${filterInput}`)
                     })
-                    setData(filter2Data);
+                    if(filter2Data.length>0){
+                        setData(filter2Data);
+                    }
+                    
+                    return
                 }
-                const debouncedFilter = setTimeout(() => {
+                // const debouncedFilter = setTimeout(() => {
+                    // console.log("huidfjk");
                     if (midTag === "is") {
+                        
                         const filter2Data = data.filter((profile) => {
                             return profile[tag] === filterInput;
                         })
                         // console.log(filter2Data)
-                        setData(filter2Data);
+                        if(filter2Data.length>0){
+                            setData(filter2Data);
+                        }else{
+                            // setData([])
+                        }
+                        // setData(filter2Data);
                     }
-                }, 4000)
+                // }, 4000)
 
 
             } else {
