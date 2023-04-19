@@ -6,6 +6,7 @@ const Filters = ({ tag, handleTag, resetData, tagsArray, filter, handleMidTag, h
     resetData()
     handleMidTag("")
     handleTag(e.target.value)
+    handleFilterInput("")
   }
 
   // console.log(tagsArray)
@@ -14,8 +15,11 @@ const Filters = ({ tag, handleTag, resetData, tagsArray, filter, handleMidTag, h
   const handleMidTagChange = (e) => {
     resetData()
     handleMidTag(e.target.value)
+    
+    handleFilterInput("")
   }
   const handleFilterInputChange = (e) => {
+    resetData()
     handleFilterInput(e.target.value)
   }
   return (
