@@ -100,12 +100,16 @@ const Main = () => {
                     })
                     setData(filter2Data);
                 }
-                if(midTag === "is"){
-                    const filter2Data = data.filter((profile) => {
-                        return profile[tag]=== filterInput;
-                    })
-                    setData(filter2Data);
-                }
+                const debouncedFilter = setTimeout(() => {
+                    if (midTag === "is") {
+                        const filter2Data = data.filter((profile) => {
+                            return profile[tag] === filterInput;
+                        })
+                        // console.log(filter2Data)
+                        setData(filter2Data);
+                    }
+                }, 4000)
+
 
             } else {
                 setData(rawData)
