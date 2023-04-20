@@ -6,29 +6,28 @@ const Filters = ({ tag, handleTag, resetData, tagsArray, filter, handleMidTag, h
     resetData()
     handleMidTag("")
     handleTag(e.target.value)
-    // handleFilterInput("")
+    handleFilterInput("")
   }
-
-  // console.log(tagsArray)
 
 
   const handleMidTagChange = (e) => {
     resetData()
     handleMidTag(e.target.value)
-    
-    // handleFilterInput("")
+    handleFilterInput(" ")
   }
   const handleFilterInputChange = (e) => {
     // console.log(e)
     resetData()
     handleFilterInput(e.target.value)
-    
+
   }
+  const filterOptions = Object.keys(tagsArray[0]).length && Object.keys(tagsArray[0])
+
   return (
     <div className="filters flex-row">
       <select className="padding border" id="tags" defaultValue={tag} onChange={handleCategoryChange}>
         <option value="">Please select a category</option>
-        {Object.keys(tagsArray[0]).length && Object.keys(tagsArray[0]).map((category, i) => {
+        {filterOptions.map((category, i) => {
           return (
             <>
               <option key={i} value={category}>{category.split("_")}</option>
@@ -36,8 +35,7 @@ const Filters = ({ tag, handleTag, resetData, tagsArray, filter, handleMidTag, h
           )
         })}
       </select>
-
-
+      
       <select className="padding" id="middleTags" onChange={handleMidTagChange}>
         <option value="" selected="selected">Select filter type</option>
         {filter[tag]?.options && filter[tag]?.options.map((midTag, i) => {

@@ -8,7 +8,7 @@ const Main = () => {
     const [tag, setTag] = useState("Please select a category");
     const [midTag, setMidTag] = useState("")
     const [filterInput, setFilterInput] = useState("")
-// console.log(filterInput)
+    // console.log(filterInput)
     const handleTag = (val) => {
         setTag(val);
     }
@@ -98,28 +98,20 @@ const Main = () => {
                     const filter2Data = data.filter((profile) => {
                         return profile[tag].includes(`${filterInput}`)
                     })
-                    if(filter2Data.length>0){
+                    if (filter2Data.length > 0) {
                         setData(filter2Data);
                     }
-                    
+
                     return
                 }
-                // const debouncedFilter = setTimeout(() => {
-                    // console.log("huidfjk");
-                    if (midTag === "is") {
-                        
-                        const filter2Data = data.filter((profile) => {
-                            return profile[tag] === filterInput;
-                        })
-                        // console.log(filter2Data)
-                        if(filter2Data.length>0){
-                            setData(filter2Data);
-                        }else{
-                            // setData([])
-                        }
-                        // setData(filter2Data);
-                    }
-                // }, 4000)
+                if (midTag === "is") {
+                    const filter2Data = data.filter((profile) => {
+                        return profile[tag] === filterInput;
+                    })
+                    console.log(filter2Data)
+                    setData(filter2Data);
+                }
+
 
 
             } else {
@@ -127,13 +119,14 @@ const Main = () => {
             }
 
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [tag, midTag, filterInput])
 
 
     return (
         <div>
             <h1 className='logo'>Filter</h1>
-            <Filters tag={tag} handleTag={handleTag} data={data} tagsArray={data} filter={filter} handleMidTag={handleMidTag} midTag={midTag} handleFilterInput={handleFilterInput} resetData={resetData} />
+            <Filters tag={tag} handleTag={handleTag} data={data} tagsArray={rawData} filter={filter} handleMidTag={handleMidTag} midTag={midTag} handleFilterInput={handleFilterInput} resetData={resetData} />
             <Display data={data} />
         </div>
     )
