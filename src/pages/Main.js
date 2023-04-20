@@ -93,7 +93,7 @@ const Main = () => {
             if (midTag !== "") {
                 if (midTag === "has") {
                     const filter2Data = data.filter((profile) => {
-                        return profile[tag].includes(`${filterInput}`)
+                        return (profile[tag].toLowerCase()).includes((`${filterInput}`).toLowerCase())
                     })
                     console.log(filter2Data)
                     setData(filter2Data);
@@ -101,7 +101,7 @@ const Main = () => {
                 }
                 if (midTag === "is") {
                     const filter2Data = data.filter((profile) => {
-                        return (profile[tag]).toLowerCase === (filterInput).toLowerCase();
+                        return (profile[tag]).toLowerCase() === (filterInput).toLowerCase();
                     })
                     console.log(filter2Data)
                     setData(filter2Data);
