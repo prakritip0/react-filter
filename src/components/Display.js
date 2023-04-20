@@ -2,7 +2,9 @@ const Display = ({ data }) => {
 
     return (
         <>
+        <p className="total">Results: {data.length}</p>
             <div className="dataDisplay grid-3">
+                
                 {
                     data.length < 1 ? <p>No matches found</p> :
 

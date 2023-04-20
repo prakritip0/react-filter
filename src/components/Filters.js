@@ -13,7 +13,7 @@ const Filters = ({ tag, handleTag, resetData, tagsArray, filter, handleMidTag, h
   const handleMidTagChange = (e) => {
     resetData()
     handleMidTag(e.target.value)
-    handleFilterInput(" ")
+    handleFilterInput("")
   }
   const handleFilterInputChange = (e) => {
     // console.log(e)
@@ -35,7 +35,7 @@ const Filters = ({ tag, handleTag, resetData, tagsArray, filter, handleMidTag, h
           )
         })}
       </select>
-      
+
       <select className="padding" id="middleTags" onChange={handleMidTagChange}>
         <option value="" selected="selected">Select filter type</option>
         {filter[tag]?.options && filter[tag]?.options.map((midTag, i) => {

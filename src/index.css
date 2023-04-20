@@ -101,7 +101,7 @@ select {
 }
 
 .dataDisplay {
-  margin: 4rem 5% 0;
+  margin: 2rem 5% 0;
   gap: 2rem;
   max-width: 90%;
 }
@@ -114,4 +114,12 @@ select {
   width: 28rem;
   height: 14.5rem;
   overflow: scroll;
+}
+.total{
+  margin: 1rem 5.5rem 0;
+  /* text-align: center  ; */
+  font-size: 1.5rem;
+  color: rgb(255, 0, 0);
+  font-weight: bold;
+
 }

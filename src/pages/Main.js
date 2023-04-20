@@ -23,7 +23,6 @@ const Main = () => {
         setData(rawData)
     }
 
-
     const filter = {
         first_name: {
             options: [{ label: "has", value: "has" }, { label: "is", value: "is" }],
@@ -66,8 +65,6 @@ const Main = () => {
             search: false
         }
     }
-    // console.log(data)
-    // const tagsArray = Object.keys(data[0]);
 
     useEffect(() => {
         // console.log("FROM MAIN", data)
@@ -98,15 +95,13 @@ const Main = () => {
                     const filter2Data = data.filter((profile) => {
                         return profile[tag].includes(`${filterInput}`)
                     })
-                    if (filter2Data.length > 0) {
-                        setData(filter2Data);
-                    }
-
+                    console.log(filter2Data)
+                    setData(filter2Data);
                     return
                 }
                 if (midTag === "is") {
                     const filter2Data = data.filter((profile) => {
-                        return profile[tag] === filterInput;
+                        return (profile[tag]).toLowerCase === (filterInput).toLowerCase();
                     })
                     console.log(filter2Data)
                     setData(filter2Data);
@@ -119,7 +114,7 @@ const Main = () => {
             }
 
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [tag, midTag, filterInput])
 
 
