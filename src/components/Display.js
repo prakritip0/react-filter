@@ -2,7 +2,7 @@ const Display = ({ data }) => {
 
     return (
         <>
-        <p className="total">Results: {data.length}</p>
+        {data.length<100 && <p className="total">Results: {data.length}</p>}
             <div className="dataDisplay grid-3">
                 
                 {
