@@ -69,6 +69,7 @@ const Main = () => {
     useEffect(() => {
         // console.log("FROM MAIN", data)
         // console.log(tag, midTag)
+        console.log(filterInput)
         if (tag === "gender") {
             if (midTag !== "") {
                 const filter2Data = data.filter((profile) => {

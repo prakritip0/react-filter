@@ -2,6 +2,8 @@ import { MdOutlineKeyboardAlt } from "react-icons/md";
 
 
 const Filters = ({ tag, handleTag, resetData, tagsArray, filter, handleMidTag, handleFilterInput, resetMidTag }) => {
+  console.log(tag)
+  
   const handleCategoryChange = (e) => {
     resetData()
     handleMidTag("")
@@ -46,7 +48,8 @@ const Filters = ({ tag, handleTag, resetData, tagsArray, filter, handleMidTag, h
       </select>
 
       <div className="thirdFilter">
-        <input type="text" disabled={!filter[tag]?.search} placeholder='type keywords...' onChange={handleFilterInputChange} />
+        {tag==="date_of_birth"? <input type="date" disabled={!filter[tag]?.search} placeholder='type keywords...' onChange={handleFilterInputChange} />: 
+        <input type="text" disabled={!filter[tag]?.search} placeholder='type keywords...' onChange={handleFilterInputChange} />}
         <MdOutlineKeyboardAlt className="keyboardIcon" />
       </div>
     </div>
