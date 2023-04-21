@@ -89,13 +89,13 @@ const Main = () => {
             } else {
                 setData(rawData)
             }
-        } else if (tag === "first_name" || tag === "last_name" || tag === "email" || tag === "social") {
+        } else if (tag === "first_name" || tag === "last_name" || tag === "email" || tag === "socials") {
             if (midTag !== "") {
                 if (midTag === "has") {
                     const filter2Data = data.filter((profile) => {
                         return (profile[tag].toLowerCase()).includes((`${filterInput}`).toLowerCase())
                     })
-                    console.log(filter2Data)
+                    // console.log(filter2Data)
                     setData(filter2Data);
                     return
                 }
@@ -103,16 +103,48 @@ const Main = () => {
                     const filter2Data = data.filter((profile) => {
                         return (profile[tag]).toLowerCase() === (filterInput).toLowerCase();
                     })
-                    console.log(filter2Data)
+                    // console.log(filter2Data)
                     setData(filter2Data);
                 }
-
-
-
-            } else {
+            }
+            else {
                 setData(rawData)
             }
 
+        } else if (tag === "provinces ") {
+            if (midTag !== "") {
+                if (midTag === "is") {
+                    const filter2Data = data.filter((profile) => {
+                        // console.log(profile[tag])
+                        return profile[tag] === Number(filterInput);
+                    })
+                    setData(filter2Data)
+                }
+                if (midTag === "is not") {
+                    const filter2Data = data.filter((profile) => {
+                        // console.log(profile[tag])
+                        return profile[tag] !== Number(filterInput);
+                    })
+                    setData(filter2Data)
+                }
+            } else {
+                setData(rawData)
+            }
+        } else if (tag === "hobbies") {
+            if (midTag !== "") {
+                if (midTag === "include") {
+                    const filter2Data = data.filter((profile) => {
+                        return profile[tag] === filterInput;
+                    })
+                    setData(filter2Data)
+                }
+                if (midTag === "exclude") {
+                    const filter2Data = data.filter((profile) => {
+                        return profile[tag] !== filterInput;
+                    })
+                    setData(filter2Data)
+                }
+            }
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [tag, midTag, filterInput])

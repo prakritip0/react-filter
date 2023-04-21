@@ -16,10 +16,8 @@ const Filters = ({ tag, handleTag, resetData, tagsArray, filter, handleMidTag, h
     handleFilterInput("")
   }
   const handleFilterInputChange = (e) => {
-    // console.log(e)
-    resetData()
-    handleFilterInput(e.target.value)
-
+      resetData()
+      handleFilterInput(e.target.value)
   }
   const filterOptions = Object.keys(tagsArray[0]).length && Object.keys(tagsArray[0])
 

@@ -2,9 +2,10 @@ const Display = ({ data }) => {
 
     return (
         <>
-        {data.length<100 && <p className="total">Results: {data.length}</p>}
+            {/* {console.log(data)} */}
+            {data.length > 1 && data.length < 1000 && <p className="total">Results: {data.length}</p>}
             <div className="dataDisplay grid-3">
-                
+
                 {
                     data.length < 1 ? <p>No matches found</p> :
 
