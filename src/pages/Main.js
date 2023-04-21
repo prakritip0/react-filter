@@ -152,7 +152,7 @@ const Main = () => {
 
     return (
         <div>
-            <h1 className='logo'>Filter</h1>
+            <a href="index.html" className='logo'>Filter</a>
             <Filters tag={tag} handleTag={handleTag} data={data} tagsArray={rawData} filter={filter} handleMidTag={handleMidTag} midTag={midTag} handleFilterInput={handleFilterInput} resetData={resetData} />
             <Display data={data} />
         </div>

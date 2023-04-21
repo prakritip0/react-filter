@@ -38,8 +38,13 @@ code {
 }
 
 .logo {
+  display: block;
   margin: 1rem 5.5rem 2rem;
   text-shadow: 2px 2px 2px #717070;
+  color: #000 ;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .filters {
