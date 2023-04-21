@@ -146,6 +146,37 @@ const Main = () => {
                     setData(filter2Data)
                 }
             }
+        }else if(tag==="date_of_birth"){
+            if(midTag!==""){
+                if(midTag==="is"){
+                    const filter2Data=data.filter((profile)=>{
+                        const incomingDateISO= profile[tag].split('/');
+                        const formattedDate= incomingDateISO[2] + '-' + incomingDateISO[0].padStart(2, '0') + '-' + incomingDateISO[1].padStart(2, '0');
+                        return formattedDate === (filterInput).replace(/\//g, '-');
+                    })
+                    setData(filter2Data)
+                    
+                }
+                if(midTag==="before"){
+                    const filter2Data=data.filter((profile)=>{
+                        const incomingDateISO= profile[tag].split('/');
+                        const formattedDate= incomingDateISO[2] + '-' + incomingDateISO[0].padStart(2, '0') + '-' + incomingDateISO[1].padStart(2, '0');
+                        return formattedDate < (filterInput).replace(/\//g, '-');
+                    })
+                    setData(filter2Data)
+                    
+                }
+                if(midTag==="after"){
+                    const filter2Data=data.filter((profile)=>{
+                        const incomingDateISO= profile[tag].split('/');
+                        const formattedDate= incomingDateISO[2] + '-' + incomingDateISO[0].padStart(2, '0') + '-' + incomingDateISO[1].padStart(2, '0');
+                        return formattedDate > (filterInput).replace(/\//g, '-');
+                    })
+                    setData(filter2Data)
+                    
+                }
+            }
+
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [tag, midTag, filterInput])
