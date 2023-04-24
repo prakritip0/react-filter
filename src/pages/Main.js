@@ -178,7 +178,7 @@ const Main = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [tag, midTag, filterInput])
 
-
+    console.log(midTag)
     return (
         <div>
             <a href="index.html" className='logo'>Filter</a>
