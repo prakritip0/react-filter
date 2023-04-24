@@ -155,7 +155,6 @@ const Main = () => {
                         return formattedDate === (filterInput).replace(/\//g, '-');
                     })
                     setData(filter2Data)
-                    
                 }
                 if(midTag==="before"){
                     const filter2Data=data.filter((profile)=>{
@@ -163,8 +162,7 @@ const Main = () => {
                         const formattedDate= incomingDateISO[2] + '-' + incomingDateISO[0].padStart(2, '0') + '-' + incomingDateISO[1].padStart(2, '0');
                         return formattedDate < (filterInput).replace(/\//g, '-');
                     })
-                    setData(filter2Data)
-                    
+                    setData(filter2Data)    
                 }
                 if(midTag==="after"){
                     const filter2Data=data.filter((profile)=>{
@@ -172,8 +170,7 @@ const Main = () => {
                         const formattedDate= incomingDateISO[2] + '-' + incomingDateISO[0].padStart(2, '0') + '-' + incomingDateISO[1].padStart(2, '0');
                         return formattedDate > (filterInput).replace(/\//g, '-');
                     })
-                    setData(filter2Data)
-                    
+                    setData(filter2Data)   
                 }
             }
 
@@ -185,7 +182,7 @@ const Main = () => {
     return (
         <div>
             <a href="index.html" className='logo'>Filter</a>
-            <Filters tag={tag} handleTag={handleTag} data={data} tagsArray={rawData} filter={filter} handleMidTag={handleMidTag} midTag={midTag} handleFilterInput={handleFilterInput} resetData={resetData} />
+            <Filters tag={tag} handleTag={handleTag} data={data} tagsArray={rawData} filter={filter} handleMidTag={handleMidTag} midTag={midTag} handleFilterInput={handleFilterInput} resetData={resetData} filterInput={filterInput} />
             <Display data={data} />
         </div>
     )
