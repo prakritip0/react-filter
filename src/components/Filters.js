@@ -1,8 +1,8 @@
 import { MdOutlineKeyboardAlt } from "react-icons/md";
 
 
-const Filters = ({ tag, handleTag, resetData, tagsArray, filter, handleMidTag, midTag, handleFilterInput, filterInput }) => {
-  // console.log(tag)
+const Filters = (props) => {
+  const {tag, handleTag, resetData, tagsArray, filter, handleMidTag, midTag, handleFilterInput, filterInput} = props.props;
   
   const handleCategoryChange = (e) => {
     resetData()

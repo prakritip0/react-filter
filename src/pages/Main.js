@@ -8,7 +8,6 @@ const Main = () => {
     const [tag, setTag] = useState("Please select a category");
     const [midTag, setMidTag] = useState("")
     const [filterInput, setFilterInput] = useState("")
-    // console.log(filterInput)
     const handleTag = (val) => {
         setTag(val);
     }
@@ -17,8 +16,7 @@ const Main = () => {
     }
     const handleFilterInput = (val) => {
         setFilterInput(val)
-        // console.log(filterInput)
-    }
+        }
     const resetData = () => {
         setData(rawData)
     }
@@ -67,8 +65,6 @@ const Main = () => {
     }
 
     useEffect(() => {
-        // console.log("FROM MAIN", data)
-        // console.log(tag, midTag)
         console.log(filterInput)
         if (tag === "gender") {
             if (midTag !== "") {
@@ -86,7 +82,6 @@ const Main = () => {
                     return profile[tag] === (midTag === "true" ? true : false);
                 })
                 setData(filter2Data)
-                // console.log(filter2Data)
             } else {
                 setData(rawData)
             }
@@ -96,7 +91,6 @@ const Main = () => {
                     const filter2Data = data.filter((profile) => {
                         return (profile[tag].toLowerCase()).includes((`${filterInput}`).toLowerCase())
                     })
-                    // console.log(filter2Data)
                     setData(filter2Data);
                     return
                 }
@@ -104,7 +98,6 @@ const Main = () => {
                     const filter2Data = data.filter((profile) => {
                         return (profile[tag]).toLowerCase() === (filterInput).toLowerCase();
                     })
-                    // console.log(filter2Data)
                     setData(filter2Data);
                 }
             }
@@ -116,14 +109,12 @@ const Main = () => {
             if (midTag !== "") {
                 if (midTag === "is") {
                     const filter2Data = data.filter((profile) => {
-                        // console.log(profile[tag])
                         return profile[tag] === Number(filterInput);
                     })
                     setData(filter2Data)
                 }
                 if (midTag === "is not") {
                     const filter2Data = data.filter((profile) => {
-                        // console.log(profile[tag])
                         return profile[tag] !== Number(filterInput);
                     })
                     setData(filter2Data)
@@ -175,14 +166,24 @@ const Main = () => {
             }
 
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [tag, midTag, filterInput])
+const props={
+    tag: tag,
+    handleTag: handleTag,
+    data: data, 
+    tagsArray: rawData,
+    filter: filter,
+    handleMidTag: handleMidTag,
+    midTag: midTag,
+    handleFilterInput: handleFilterInput,
+    resetData: resetData,
+    filterInput: filterInput
+}
 
-    console.log(midTag)
     return (
         <div>
             <a href="index.html" className='logo'>Filter</a>
-            <Filters tag={tag} handleTag={handleTag} data={data} tagsArray={rawData} filter={filter} handleMidTag={handleMidTag} midTag={midTag} handleFilterInput={handleFilterInput} resetData={resetData} filterInput={filterInput} />
+            <Filters props={props} />
             <Display data={data} />
         </div>
     )
