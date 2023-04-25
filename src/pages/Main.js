@@ -91,14 +91,19 @@ const Main = () => {
                     const filter2Data = data.filter((profile) => {
                         return (profile[tag].toLowerCase()).includes((`${filterInput}`).toLowerCase())
                     })
-                    setData(filter2Data);
+                    if(filterInput!==""){
+                        setData(filter2Data);
+                    }
+                    
                     return
                 }
                 if (midTag === "is") {
                     const filter2Data = data.filter((profile) => {
                         return (profile[tag]).toLowerCase() === (filterInput).toLowerCase();
                     })
-                    setData(filter2Data);
+                    if(filterInput!==""){
+                        setData(filter2Data);
+                    }
                 }
             }
             else {
@@ -111,13 +116,17 @@ const Main = () => {
                     const filter2Data = data.filter((profile) => {
                         return profile[tag] === Number(filterInput);
                     })
-                    setData(filter2Data)
+                    if(filterInput!==""){
+                        setData(filter2Data);
+                    }
                 }
                 if (midTag === "is not") {
                     const filter2Data = data.filter((profile) => {
                         return profile[tag] !== Number(filterInput);
                     })
-                    setData(filter2Data)
+                    if(filterInput!==""){
+                        setData(filter2Data);
+                    }
                 }
             } else {
                 setData(rawData)
@@ -128,14 +137,20 @@ const Main = () => {
                     const filter2Data = data.filter((profile) => {
                         return profile[tag] === filterInput;
                     })
-                    setData(filter2Data)
+                    if(filterInput!==""){
+                        setData(filter2Data);
+                    }
                 }
                 if (midTag === "exclude") {
                     const filter2Data = data.filter((profile) => {
                         return profile[tag] !== filterInput;
                     })
-                    setData(filter2Data)
+                    if(filterInput!==""){
+                        setData(filter2Data);
+                    }
                 }
+            }else{
+                setData(rawData)
             }
         }else if(tag==="date_of_birth"){
             if(midTag!==""){
@@ -145,7 +160,9 @@ const Main = () => {
                         const formattedDate= incomingDateISO[2] + '-' + incomingDateISO[0].padStart(2, '0') + '-' + incomingDateISO[1].padStart(2, '0');
                         return formattedDate === (filterInput).replace(/\//g, '-');
                     })
-                    setData(filter2Data)
+                    if(filterInput!==""){
+                        setData(filter2Data);
+                    }
                 }
                 if(midTag==="before"){
                     const filter2Data=data.filter((profile)=>{
@@ -153,7 +170,9 @@ const Main = () => {
                         const formattedDate= incomingDateISO[2] + '-' + incomingDateISO[0].padStart(2, '0') + '-' + incomingDateISO[1].padStart(2, '0');
                         return formattedDate < (filterInput).replace(/\//g, '-');
                     })
-                    setData(filter2Data)    
+                    if(filterInput!==""){
+                        setData(filter2Data);
+                    }  
                 }
                 if(midTag==="after"){
                     const filter2Data=data.filter((profile)=>{
@@ -161,8 +180,12 @@ const Main = () => {
                         const formattedDate= incomingDateISO[2] + '-' + incomingDateISO[0].padStart(2, '0') + '-' + incomingDateISO[1].padStart(2, '0');
                         return formattedDate > (filterInput).replace(/\//g, '-');
                     })
-                    setData(filter2Data)   
+                    if(filterInput!==""){
+                        setData(filter2Data);
+                    } 
                 }
+            }else{
+                setData(rawData)
             }
 
         }
