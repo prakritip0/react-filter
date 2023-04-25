@@ -2,20 +2,18 @@ import { MdOutlineKeyboardAlt } from "react-icons/md";
 
 
 const Filters = (props) => {
-  const {tag, tagsArray, filter,  midTag,  filterInput} = props.allData;
-  const {handleTag, handleMidTag, handleFilterInput}= props.handleChange;
-  const resetData= props.resetData;
+  const { tag, tagsArray, filter, midTag, filterInput } = props.allData;
+  const { handleTag, handleMidTag, handleFilterInput } = props.handleChange;
+  const resetData = props.resetData;
 
-  const resetAll =()=>{
+
+
+  const handleCategoryChange = (e) => {
     resetData();
     handleMidTag("");
     handleFilterInput("")
-  }
-  
-  const handleCategoryChange = (e) => {
-    resetAll();
     handleTag(e.target.value)
-    
+
   }
 
 
@@ -25,8 +23,8 @@ const Filters = (props) => {
     handleFilterInput("")
   }
   const handleFilterInputChange = (e) => {
-      resetData()
-      handleFilterInput(e.target.value)
+    resetData()
+    handleFilterInput(e.target.value)
   }
   const filterOptions = Object.keys(tagsArray[0]).length && Object.keys(tagsArray[0])
 
@@ -55,9 +53,15 @@ const Filters = (props) => {
       </select>
 
       <div className="thirdFilter">
-        
-        {tag==="date_of_birth"? <input type="date" placeholder='type keywords...' onChange={handleFilterInputChange} />: 
-        <input type="text" disabled={!filter[tag]?.search || midTag==="" } placeholder='type keywords...' value={filterInput} onChange={handleFilterInputChange} />}
+
+        {(tag === "date_of_birth" ? (
+          <input type="date" disabled={!filter[tag]?.search || midTag === ""} placeholder='type keywords...' onChange={handleFilterInputChange} />
+        ) : tag === "provinces " ? (
+          <input type="number" disabled={!filter[tag]?.search || midTag === ""} placeholder='type province...' onChange={handleFilterInputChange} />
+        ) : (
+          <input type="text" disabled={!filter[tag]?.search || midTag === ""} placeholder='type keywords...' value={filterInput} onChange={handleFilterInputChange} />
+        )
+        )}
         <MdOutlineKeyboardAlt className="keyboardIcon" />
       </div>
     </div>
