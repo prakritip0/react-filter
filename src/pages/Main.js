@@ -167,23 +167,25 @@ const Main = () => {
 
         }
     }, [tag, midTag, filterInput])
-const props={
+
+const allData={
     tag: tag,
-    handleTag: handleTag,
     data: data, 
     tagsArray: rawData,
     filter: filter,
-    handleMidTag: handleMidTag,
     midTag: midTag,
-    handleFilterInput: handleFilterInput,
-    resetData: resetData,
     filterInput: filterInput
+}
+const handleChange ={
+    handleTag: handleTag,
+    handleMidTag: handleMidTag,
+    handleFilterInput: handleFilterInput
 }
 
     return (
         <div>
             <a href="index.html" className='logo'>Filter</a>
-            <Filters props={props} />
+            <Filters allData={allData} handleChange={handleChange} resetData={resetData} />
             <Display data={data} />
         </div>
     )
