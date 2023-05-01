@@ -10,10 +10,9 @@ const Filters = (props) => {
 
   const handleCategoryChange = (e) => {
     resetData();
-    handleMidTag("");
     handleFilterInput("")
     handleTag(e.target.value)
-
+    handleMidTag('');
   }
 
 
@@ -30,22 +29,23 @@ const Filters = (props) => {
 
   return (
     <div className="filters flex-row">
-      <select className="padding border" id="tags" defaultValue={tag} onChange={handleCategoryChange}>
-        <option value="">Please select a category</option>
+      <select className="padding border" id="tags" value={tag} onChange={handleCategoryChange}>
+        <option>Please select a category</option>
         {filterOptions.map((category, i) => {
           return (
             <>
-              <option key={i} value={category}>{category.split("_")}</option>
+              <option key={i} value={category}>{category.replace("_", " ")}</option>
             </>
           )
         })}
       </select>
 
-      <select className="padding" id="middleTags" onChange={handleMidTagChange}>
-        <option value="" selected="selected">Select filter type</option>
+      <select className="padding" id="middleTags" value={midTag} onChange={handleMidTagChange}>
+        <option>Select filter type</option>
         {filter[tag]?.options && filter[tag]?.options.map((midTag, i) => {
+
           return (
-            <option key={midTag.value} value={midTag.value}>{midTag.label} </option>
+            <option key={midTag.value} value={midTag.value}>{midTag.label}</option>
           )
 
         }

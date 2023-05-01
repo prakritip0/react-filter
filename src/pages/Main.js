@@ -5,9 +5,12 @@ let rawData = require("../data/data.json")
 
 const Main = () => {
     const [data, setData] = useState(rawData);
-    const [tag, setTag] = useState("Please select a category");
+    const [tag, setTag] = useState("");
     const [midTag, setMidTag] = useState("")
     const [filterInput, setFilterInput] = useState("")
+
+    console.log(tag, midTag);
+
     const handleTag = (val) => {
         setTag(val);
     }
@@ -16,7 +19,7 @@ const Main = () => {
     }
     const handleFilterInput = (val) => {
         setFilterInput(val)
-        }
+    }
     const resetData = () => {
         setData(rawData)
     }
@@ -65,7 +68,7 @@ const Main = () => {
     }
 
     useEffect(() => {
-        console.log(filterInput)
+        console.log(midTag)
         if (tag === "gender") {
             if (midTag !== "") {
                 const filter2Data = data.filter((profile) => {
@@ -91,17 +94,17 @@ const Main = () => {
                     const filter2Data = data.filter((profile) => {
                         return (profile[tag].toLowerCase()).includes((`${filterInput}`).toLowerCase())
                     })
-                    if(filterInput!==""){
+                    if (filterInput !== "") {
                         setData(filter2Data);
                     }
-                    
+
                     return
                 }
                 if (midTag === "is") {
                     const filter2Data = data.filter((profile) => {
                         return (profile[tag]).toLowerCase() === (filterInput).toLowerCase();
                     })
-                    if(filterInput!==""){
+                    if (filterInput !== "") {
                         setData(filter2Data);
                     }
                 }
@@ -116,7 +119,7 @@ const Main = () => {
                     const filter2Data = data.filter((profile) => {
                         return profile[tag] === Number(filterInput);
                     })
-                    if(filterInput!==""){
+                    if (filterInput !== "") {
                         setData(filter2Data);
                     }
                 }
@@ -124,7 +127,7 @@ const Main = () => {
                     const filter2Data = data.filter((profile) => {
                         return profile[tag] !== Number(filterInput);
                     })
-                    if(filterInput!==""){
+                    if (filterInput !== "") {
                         setData(filter2Data);
                     }
                 }
@@ -137,7 +140,7 @@ const Main = () => {
                     const filter2Data = data.filter((profile) => {
                         return profile[tag] === filterInput;
                     })
-                    if(filterInput!==""){
+                    if (filterInput !== "") {
                         setData(filter2Data);
                     }
                 }
@@ -145,65 +148,65 @@ const Main = () => {
                     const filter2Data = data.filter((profile) => {
                         return profile[tag] !== filterInput;
                     })
-                    if(filterInput!==""){
+                    if (filterInput !== "") {
                         setData(filter2Data);
                     }
                 }
-            }else{
+            } else {
                 setData(rawData)
             }
-        }else if(tag==="date_of_birth"){
-            if(midTag!==""){
-                if(midTag==="is"){
-                    const filter2Data=data.filter((profile)=>{
-                        const incomingDateISO= profile[tag].split('/');
-                        const formattedDate= incomingDateISO[2] + '-' + incomingDateISO[0].padStart(2, '0') + '-' + incomingDateISO[1].padStart(2, '0');
+        } else if (tag === "date_of_birth") {
+            if (midTag !== "") {
+                if (midTag === "is") {
+                    const filter2Data = data.filter((profile) => {
+                        const incomingDateISO = profile[tag].split('/');
+                        const formattedDate = incomingDateISO[2] + '-' + incomingDateISO[0].padStart(2, '0') + '-' + incomingDateISO[1].padStart(2, '0');
                         return formattedDate === (filterInput).replace(/\//g, '-');
                     })
-                    if(filterInput!==""){
+                    if (filterInput !== "") {
                         setData(filter2Data);
                     }
                 }
-                if(midTag==="before"){
-                    const filter2Data=data.filter((profile)=>{
-                        const incomingDateISO= profile[tag].split('/');
-                        const formattedDate= incomingDateISO[2] + '-' + incomingDateISO[0].padStart(2, '0') + '-' + incomingDateISO[1].padStart(2, '0');
+                if (midTag === "before") {
+                    const filter2Data = data.filter((profile) => {
+                        const incomingDateISO = profile[tag].split('/');
+                        const formattedDate = incomingDateISO[2] + '-' + incomingDateISO[0].padStart(2, '0') + '-' + incomingDateISO[1].padStart(2, '0');
                         return formattedDate < (filterInput).replace(/\//g, '-');
                     })
-                    if(filterInput!==""){
+                    if (filterInput !== "") {
                         setData(filter2Data);
-                    }  
+                    }
                 }
-                if(midTag==="after"){
-                    const filter2Data=data.filter((profile)=>{
-                        const incomingDateISO= profile[tag].split('/');
-                        const formattedDate= incomingDateISO[2] + '-' + incomingDateISO[0].padStart(2, '0') + '-' + incomingDateISO[1].padStart(2, '0');
+                if (midTag === "after") {
+                    const filter2Data = data.filter((profile) => {
+                        const incomingDateISO = profile[tag].split('/');
+                        const formattedDate = incomingDateISO[2] + '-' + incomingDateISO[0].padStart(2, '0') + '-' + incomingDateISO[1].padStart(2, '0');
                         return formattedDate > (filterInput).replace(/\//g, '-');
                     })
-                    if(filterInput!==""){
+                    if (filterInput !== "") {
                         setData(filter2Data);
-                    } 
+                    }
                 }
-            }else{
+            } else {
                 setData(rawData)
             }
 
         }
     }, [tag, midTag, filterInput])
 
-const allData={
-    tag: tag,
-    data: data, 
-    tagsArray: rawData,
-    filter: filter,
-    midTag: midTag,
-    filterInput: filterInput
-}
-const handleChange ={
-    handleTag: handleTag,
-    handleMidTag: handleMidTag,
-    handleFilterInput: handleFilterInput
-}
+    const allData = {
+        tag: tag,
+        data: data,
+        tagsArray: rawData,
+        filter: filter,
+        midTag: midTag,
+        filterInput: filterInput
+    }
+    const handleChange = {
+        handleTag,
+        handleMidTag,
+        handleFilterInput
+    }
 
     return (
         <div>
