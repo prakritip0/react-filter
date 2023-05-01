@@ -9,7 +9,7 @@ const Main = () => {
     const [midTag, setMidTag] = useState("")
     const [filterInput, setFilterInput] = useState("")
 
-    console.log(tag, midTag);
+    // console.log(tag, midTag);
 
     const handleTag = (val) => {
         setTag(val);
